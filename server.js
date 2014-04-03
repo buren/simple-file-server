@@ -12,6 +12,18 @@ var optimist = require('optimist'),
     usersFile = __dirname + '/users.json'
     ;
 
+/*
+For HTTP Basic Auth (create file at simple-file-server root).
+users.json example
+    {
+      "users": [
+        {
+          "name": "buren",
+          "password": "buren"
+        }
+      ]
+    }
+*/
 
 /*handle cli arguments*/
 argv = optimist
@@ -34,7 +46,7 @@ if (fs.existsSync(usersFile)){
     }
 }
 if (!users){
-    console.log('** WARNING: No "users.json" file found. No authentication will be required! **');
+    console.log('** WARNING: No "users.json" file found' +  (usersFile) + '. No authentication will be required! **');
 }
 
 
